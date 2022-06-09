@@ -1,0 +1,145 @@
+﻿@model MaratonProgramacion.Models.Grupo
+
+@{
+    ViewData["Title"] = "Details";
+}
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<h1>Detalles</h1>
+
+<div>
+    <h3>Informacion Grupo</h3>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.NombreGrupo)
+        </dt>
+        <dd class="col-sm-5">
+            @Html.DisplayFor(model => model.NombreGrupo)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+        <dd class="col-sm-5">
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.FechaCreacion)
+        </dt>
+        <dd class="col-sm-5">
+            @Html.DisplayFor(model => model.FechaCreacion)
+        </dd>
+    </dl>
+    <h3>Informacion Lider</h3>
+    <dl class="row">
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.NombreLider)
+        </dt>
+        <dd class="col-sm-5">
+            @Html.DisplayFor(model => model.NombreLider)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.ApellidoLider)
+        </dt>
+        <dd class="col-sm-5">
+            @Html.DisplayFor(model => model.ApellidoLider)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.IdentificacionLider)
+        </dt>
+        <dd class="col-sm-5">
+            @Html.DisplayFor(model => model.IdentificacionLider)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.CorreoLider)
+        </dt>
+        <dd class="col-sm-5">
+            @Html.DisplayFor(model => model.CorreoLider)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.LenguajeProgramacionLider)
+        </dt>
+        <dd class="col-sm-5">
+            @Html.DisplayFor(model => model.LenguajeProgramacionLider)
+        </dd>
+    </dl>
+    <h3>Informacion segundo integrantes</h3>
+    <dl class="row">
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.NombreIntegrante2)
+        </dt>
+        <dd class="col-sm-5">
+            @Html.DisplayFor(model => model.NombreIntegrante2)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.ApellidoIntegrante2)
+        </dt>
+        <dd class="col-sm-5">
+            @Html.DisplayFor(model => model.ApellidoIntegrante2)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.IdentificacionIntegrante2)
+        </dt>
+        <dd class="col-sm-5">
+            @Html.DisplayFor(model => model.IdentificacionIntegrante2)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.CorreoIntegrante2)
+        </dt>
+        <dd class="col-sm-5">
+            @Html.DisplayFor(model => model.CorreoIntegrante2)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.LenguajeProgramacionIntegrante2)
+        </dt>
+        <dd class="col-sm-5">
+            @Html.DisplayFor(model => model.LenguajeProgramacionIntegrante2)
+        </dd>
+    </dl>
+    <h3>Informacion tercer integrante</h3>
+    <dl class="row">
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.NombreIntegrante3)
+        </dt>
+        <dd class="col-sm-5">
+            @Html.DisplayFor(model => model.NombreIntegrante3)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.ApellidoIntegrante3)
+        </dt>
+        <dd class="col-sm-5">
+            @Html.DisplayFor(model => model.ApellidoIntegrante3)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.IdentificacionIntegrante3)
+        </dt>
+        <dd class="col-sm-5">
+            @Html.DisplayFor(model => model.IdentificacionIntegrante3)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.CorreoIntegrante3)
+        </dt>
+        <dd class="col-sm-5">
+            @Html.DisplayFor(model => model.CorreoIntegrante3)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.LenguajeProgramacionIntegrante3)
+        </dt>
+        <dd class="col-sm-5">
+            @Html.DisplayFor(model => model.LenguajeProgramacionIntegrante3)
+        </dd>
+    </dl>
+</div>
+<div>
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Editar</a>
+        <a asp-action="Index" class="btn btn-info">Regresar a la lista</a>
+    }
+    else
+    {
+        <a asp-action="Index" class="btn btn-info">Regresar a la lista</a>
+    }
+</div>

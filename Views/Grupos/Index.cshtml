@@ -1,0 +1,77 @@
+﻿@model IEnumerable<MaratonProgramacion.Models.Grupo>
+
+@{
+    ViewData["Title"] = "Listado de grupos registrados";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<div class="container">
+    @if (TempData["mensaje"] != null || TempData["mensaje"] != string.Empty)
+    {
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            @TempData["mensaje"]
+            <button type="button" class="close" date-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>Lista de grupos</h3>
+        </div>
+        <div class="col-sm-6">
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <a class="btn btn-success" asp-action="Create" asp-controller="Grupos">Agregar Nuevo grupo</a>
+                <a class="btn btn-success" asp-action="GenerarCSV" asp-controller="Grupos">Exportar</a>
+            }
+        </div>
+    </div>
+
+    <div class="row">
+        @if (Model.Count() > 0)
+        {
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <td>@Html.DisplayNameFor(m => m.NombreGrupo)</td>
+                        <td>@Html.DisplayNameFor(m => m.Estado)</td>
+                        <td>@Html.DisplayNameFor(m => m.FechaCreacion)</td>
+                        <td>Acciones</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.NombreGrupo</td>
+                            <td>@item.Estado</td>
+                            <td>@item.FechaCreacion</td>
+                            <td>
+                                @if (SignInManager.IsSignedIn(User))
+                                {
+                                    <a asp-controller="Grupos" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Editar</a>
+                                    <a asp-controller="Grupos" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Eliminar</a>
+                                    <a asp-controller="Grupos" asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Detalles</a>
+                                }
+                                else
+                                {
+                                    <a asp-controller="Grupos" asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Detalles</a>
+                                }
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>No hay registros</p>
+        }
+    </div>
+</div>

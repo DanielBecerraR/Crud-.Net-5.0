@@ -1,0 +1,144 @@
+﻿@model MaratonProgramacion.Models.Grupo
+
+@{
+    ViewData["Title"] = "Edit";
+}
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@if (SignInManager.IsSignedIn(User))
+{
+    <h1>Edit</h1>
+
+    <h4>Grupo</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <h4>Información del lider del equipo</h4>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label asp-for="NombreGrupo" class="control-label"></label>
+                    <input asp-for="NombreGrupo" class="form-control" />
+                    <span asp-validation-for="NombreGrupo" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Estado" /> @Html.DisplayNameFor(model => model.Estado)
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FechaCreacion" class="control-label"></label>
+                    <input asp-for="FechaCreacion" class="form-control" />
+                    <span asp-validation-for="FechaCreacion" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="NombreLider" class="control-label"></label>
+                    <input asp-for="NombreLider" class="form-control" />
+                    <span asp-validation-for="NombreLider" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ApellidoLider" class="control-label"></label>
+                    <input asp-for="ApellidoLider" class="form-control" />
+                    <span asp-validation-for="ApellidoLider" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="IdentificacionLider" class="control-label"></label>
+                    <input asp-for="IdentificacionLider" class="form-control" />
+                    <span asp-validation-for="IdentificacionLider" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CorreoLider" class="control-label"></label>
+                    <input asp-for="CorreoLider" class="form-control" />
+                    <span asp-validation-for="CorreoLider" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LenguajeProgramacionLider" class="control-label"></label>
+                    <select asp-for="LenguajeProgramacionLider" class="form-control">
+                        <option value="JAVA">JAVA</option>
+                        <option value="C#">C</option>
+                        <option value="C#">C++</option>
+                    </select>
+                    <span asp-validation-for="LenguajeProgramacionLider" class="text-danger"></span>
+                </div>
+                <h4>Información del segundo integrante</h4>
+                <div class="form-group">
+                    <label asp-for="NombreIntegrante2" class="control-label"></label>
+                    <input asp-for="NombreIntegrante2" class="form-control" />
+                    <span asp-validation-for="NombreIntegrante2" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ApellidoIntegrante2" class="control-label"></label>
+                    <input asp-for="ApellidoIntegrante2" class="form-control" />
+                    <span asp-validation-for="ApellidoIntegrante2" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="IdentificacionIntegrante2" class="control-label"></label>
+                    <input asp-for="IdentificacionIntegrante2" class="form-control" />
+                    <span asp-validation-for="IdentificacionIntegrante2" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CorreoIntegrante2" class="control-label"></label>
+                    <input asp-for="CorreoIntegrante2" class="form-control" />
+                    <span asp-validation-for="CorreoIntegrante2" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LenguajeProgramacionIntegrante2" class="control-label"></label>
+                    <select asp-for="LenguajeProgramacionIntegrante2" class="form-control">
+                        <option value="JAVA">JAVA</option>
+                        <option value="C#">C</option>
+                        <option value="C#">C++</option>
+                    </select>
+                    <span asp-validation-for="LenguajeProgramacionIntegrante2" class="text-danger"></span>
+                </div>
+                <h4>Información del tercer integrante</h4>
+                <div class="form-group">
+                    <label asp-for="NombreIntegrante3" class="control-label"></label>
+                    <input asp-for="NombreIntegrante3" class="form-control" />
+                    <span asp-validation-for="NombreIntegrante3" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ApellidoIntegrante3" class="control-label"></label>
+                    <input asp-for="ApellidoIntegrante3" class="form-control" />
+                    <span asp-validation-for="ApellidoIntegrante3" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="IdentificacionIntegrante3" class="control-label"></label>
+                    <input asp-for="IdentificacionIntegrante3" class="form-control" />
+                    <span asp-validation-for="IdentificacionIntegrante3" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CorreoIntegrante3" class="control-label"></label>
+                    <input asp-for="CorreoIntegrante3" class="form-control" />
+                    <span asp-validation-for="CorreoIntegrante3" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LenguajeProgramacionIntegrante3" class="control-label"></label>
+                    <select asp-for="LenguajeProgramacionIntegrante3" class="form-control">
+                        <option value="JAVA">JAVA</option>
+                        <option value="C#">C</option>
+                        <option value="C#">C++</option>
+                    </select>
+                    <span asp-validation-for="LenguajeProgramacionIntegrante3" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Guardar " class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index" class="btn btn-info">Regresar a la lista</a>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+}
+else
+{
+    <h3>Actualmente no cuenta con los permisos necesarios para ingresar al modulo.</h3>
+}
+
